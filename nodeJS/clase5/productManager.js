@@ -39,6 +39,26 @@ class ProductManager{
         this.products.push(item);
     } 
 
+    updateProduct(_id, _Product){
+        let producto = this.getProductById(_id)
+        if(producto == "Not Found"){
+            console.log("No existe el id seleccionado")
+        }
+        else{
+            producto.product = _Product
+        }
+    }
+
+    deleteProduct(_id){
+        let producto = this.getProductById(_id)
+        if(producto == "Not Found"){
+            console.log("No existe el id seleccionado")
+        }
+        else{
+            producto.product = null
+        }
+    }
+
     getProductById(_id){
         return this.products.find((product) => product.id === _id) ? this.products.find((product) => product.id === _id ): "Not Found";
     }
