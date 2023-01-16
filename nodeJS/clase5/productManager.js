@@ -1,10 +1,13 @@
 const Product = require('./product.js')
+const FileManager = require('./fileManager.js')
 
 class ProductManager{
     products;
 
     constructor() {
-        this.products = [];
+        this.products = []
+        let fm = new FileManager()
+        fm.crearArchivo(this.products)
     }
 
     getProducts() {
