@@ -5,11 +5,31 @@ class fileManager{
         this.path = './productos.json'
     }
 
-    async crearArchivo(_info){
-        await fs.writeFile('./productos.json','[]',(error)=>{
-            if(error) return console.log(error)
-        })
+    existeArchivo(){
+        return (!fs.existsSync(this.path)) ? false : true;
     }
+
+    async cargarArchivo(){
+        if(this.existeArchivo()){
+            let array = await fs.promises.readFile(this.path,"utf-8")
+            return await JSON.parse(array);
+        }
+        else{
+            let array = []
+            fs.promises.writeFile(this.path, JSON.stringify(array))
+            return array
+        }
+    }
+
+    guardarArchivo(array){
+        try{
+            fs.writeFile(this.path, JSON.stringify(array))
+        }
+        catch(error){
+            console.log(error)
+        }
+    }
+
 }
 
 module.exports = fileManager

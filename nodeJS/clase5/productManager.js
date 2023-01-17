@@ -5,9 +5,9 @@ class ProductManager{
     products;
 
     constructor() {
+        //let fm = new FileManager()
+        //this.products = fm.cargarArchivo()
         this.products = []
-        let fm = new FileManager()
-        fm.crearArchivo(this.products)
     }
 
     getProducts() {
@@ -40,6 +40,8 @@ class ProductManager{
         let countProducts = this.products.length
         let item = {id:countProducts+1, product:product}
         this.products.push(item);
+        let fm = new FileManager()
+        fm.guardarArchivo(this.products)
     } 
 
     updateProduct(_id, _Product){
@@ -49,6 +51,8 @@ class ProductManager{
         }
         else{
             producto.product = _Product
+            let fm = new FileManager()
+            fm.guardarArchivo(this.products)
         }
     }
 
@@ -59,6 +63,8 @@ class ProductManager{
         }
         else{
             producto.product = null
+            let fm = new FileManager()
+            fm.guardarArchivo(this.products)
         }
     }
 

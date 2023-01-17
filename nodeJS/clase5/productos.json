@@ -1,1 +1,1 @@
-[]
+[{"id":1,"product":{"title":"Manzanas","description":"Fruta","price":50,"thumbnail":null,"code":1,"stock":10}},{"id":2,"product":{"title":"Frutilla","description":"Fruta","price":20,"thumbnail":null,"code":5,"stock":10}},{"id":3,"product":null}]
